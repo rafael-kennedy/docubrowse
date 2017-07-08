@@ -1,5 +1,5 @@
 {
-    "name": "docubrowse",
+    "name": "docubrowseelectron",
     "dependencies": {
         "electron": "^1.7.3"
     },

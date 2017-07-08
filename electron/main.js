@@ -1,12 +1,20 @@
-const {app, BrowserWindow} = require('electron')
+// Electron Imports
+const {app, BrowserWindow, ipcMain} = require('electron')
+
+// Node Imports
 const path = require('path')
 const url = require('url')
+const fs = require('fs')
+
+// Other Imports
+const _ = require('lodash')
+const paths = require('./paths')
+
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win
-let rootPath = path.join(__dirname, '..')
-let dataPath = path.join(rootPath, 'data')
+
 
 function createWindow () {
   // Create the browser window.
@@ -14,7 +22,7 @@ function createWindow () {
 
   // and load the index.html of the app.
   win.loadURL(url.format({
-    pathname: path.join(rootPath, 'index.html'),
+    pathname: path.join(paths.rootPath, 'index.html'),
     protocol: 'file:',
     slashes: true
   }))
@@ -31,14 +39,14 @@ function createWindow () {
   })
 }
 
-function initData() {
-
-}
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow)
+app.on('ready', () => {
+  require('./listeners.js')(win)
+  createWindow()
+})
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {

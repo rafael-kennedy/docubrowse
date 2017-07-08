@@ -5,10 +5,22 @@
   "author": "Rafael Kennedy <rafael.kennedy@ed.gov>",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
+    "dev": "cross-env NODE_ENV=development webpack --watch & electron --inspect-brk electron/",
+    "devClient": "cross-env NODE_ENV=development webpack --watch & electron electron/",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
+    "docubrowseelectron": "file:electron",
+    "font-awesome": "^4.7.0",
+    "font-awesome-webpack": "0.0.5-beta.2",
+    "highlight.js": "^9.12.0",
+    "less": "^2.7.2",
+    "lodash": "^4.17.4",
+    "lunr": "^2.1.0",
+    "markdown-it": "^8.3.1",
+    "recursive-readdir": "^2.2.1",
+    "to-markdown": "^3.0.4",
+    "url-loader": "^0.5.9",
     "vue": "^2.3.3"
   },
   "devDependencies": {
@@ -19,7 +31,9 @@
     "css-loader": "^0.25.0",
     "file-loader": "^0.9.0",
     "node-sass": "^4.5.0",
+    "pug": "^2.0.0-rc.2",
     "sass-loader": "^5.0.1",
+    "style-loader": "^0.18.2",
     "vue-loader": "^12.1.0",
     "vue-template-compiler": "^2.3.3",
     "webpack": "^2.6.1",

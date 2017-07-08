@@ -1,0 +1,5 @@
+@function default-trans($trans...)
+  $out: ()
+  @each $tran in $trans
+    $out: append($out, #{$tran} 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55), comma)
+  @return $out

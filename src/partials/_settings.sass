@@ -1,0 +1,66 @@
+@keyframes thinking
+  10%
+    transform: rotate(0deg)
+  40%
+    transform: rotate(180deg)
+  50%
+    transform: rotate(180deg)
+  90%
+    transform: rotate(360deg)
+  100%
+    transform: rotate(360deg)
+
+
+input
+  background-color: darken($grey-blue, 10%)
+  padding: 3px
+  border: none
+  color: $white
+  font-family: Hack
+  &:focus
+    outline: solid darken($yellow, 30%) 2px
+button
+  display: inline-block
+  padding: 0.5em
+  font-family: Hack, monospace
+  line-height: 1.8
+  appearance: none
+  box-shadow: 2px 2px
+  border-radius: 0
+  border: none
+  background-color: $light-blue
+
+  &:hover
+    background-color: darken($light-blue, 20%)
+  &:focus
+    outline: none
+  &:active
+    background-color: darken($light-blue, 40%)
+
+i.fa-spinner, button.thinking
+  box-shadow: none
+  animation-name: thinking
+  animation-delay: 200ms
+  animation-duration: 2000ms
+  animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55)
+  animation-iteration-count: infinite
+
+#msg
+  background-color: lighten($grey-blue, 20%)
+  color: $white
+  font-family: Hack
+  position: fixed
+  bottom: 1em
+  right: 1em
+  display: flex
+
+select
+  background-color: darken($grey-blue, 10%)
+  color: $white
+  font-family: Hack
+  border: none
+  overflow-y: auto
+  &::-webkit-scrollbar
+    display: none
+  &:focus
+    outline: solid darken($yellow, 30%) 2px
